@@ -1,0 +1,57 @@
+/* Root container styling */
+.root {
+    -fx-background-color: #333333; /* Sets the background color of the entire application to a dark gray (#333333) */
+}
+
+/* Tab header background styling */
+.tab-pane .tab-header-background {
+    -fx-background-color: #444444; /* Sets the background color of the tab headers' container to a slightly lighter gray (#444444) than the root */
+}
+
+/* Tab styling */
+.tab-pane .tab {
+    -fx-background-color: black; /* Unselected tab background */
+    -fx-pref-height: 40px; /* Increase tab height */
+}
+
+/* Selected tab styling */
+.tab:selected {
+    -fx-background-color: #666666; /* Selected tab background */
+}
+
+/* Tab label styling */
+.tab-pane .tab .tab-label {
+    -fx-text-fill: white; /* Tab label text color */
+    -fx-font-size: 16px; /* Increase font size for tab labels */
+}
+
+/* General label styling */
+.label {
+    -fx-text-fill: white; /* General label text color */
+}
+
+/* Titled pane header styling */
+.titled-pane {
+    -fx-base: #555555; /* Titled pane header background */
+    -fx-text-fill: white; /* Titled pane text color */
+}
+
+/* Titled pane content background styling */
+.titled-pane > .content {
+    -fx-background-color: white; /* Titled pane content background */
+}
+
+/* Titled pane content label styling */
+.titled-pane > .content > .label {
+    -fx-text-fill: black; /* Titled pane content label text color */
+}
+
+/* Color picker styling */
+.color-picker {
+    -fx-background-color: #555555; /* Color picker background */
+}
+
+/* Labels inside color settings styling */
+.color-settings .label {
+    -fx-text-fill: black; /* Labels inside color settings */
+}
