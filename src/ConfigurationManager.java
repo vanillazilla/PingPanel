@@ -1,8 +1,10 @@
-import java.awt.*;
+import javafx.scene.paint.Color;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Set;
 
 public class ConfigurationManager {
     private static final String PROPERTIES_FILE = "config.properties";
@@ -17,23 +19,15 @@ public class ConfigurationManager {
         try (FileInputStream in = new FileInputStream(PROPERTIES_FILE)) {
             props.load(in);
         } catch (IOException e) {
-            setDefaultProperties();
+            System.out.println("Error loading the properties file: " + e.getMessage());
         }
-    }
-
-    private void setDefaultProperties() {
-        props.setProperty("windowWidth", "800");
-        props.setProperty("windowHeight", "600");
-        props.setProperty("reachableColor", Color.GREEN.toString());
-        props.setProperty("unreachableColor", Color.RED.toString());
-        saveProperties();
     }
 
     public void saveProperties() {
         try (FileOutputStream out = new FileOutputStream(PROPERTIES_FILE)) {
             props.store(out, "Application Settings");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error saving the properties file: " + e.getMessage());
         }
     }
 
@@ -43,5 +37,14 @@ public class ConfigurationManager {
 
     public void setProperty(String key, String value) {
         props.setProperty(key, value);
+    }
+
+    public void removeProperty(String key) {
+        props.remove(key);
+        saveProperties();  // Save the properties file after removing the key
+    }
+
+    public Set<String> getKeys() {
+        return props.stringPropertyNames();
     }
 }

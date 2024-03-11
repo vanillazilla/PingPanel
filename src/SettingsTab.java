@@ -52,4 +52,5 @@ public class SettingsTab extends Tab {
         settingBox.setAlignment(Pos.CENTER_LEFT);
         return settingBox;
     }
+
 }
